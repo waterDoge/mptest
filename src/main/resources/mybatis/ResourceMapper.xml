@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.example.mptest.mapper.ResourceMapper">
+    <select id="pagingByIds" resultType="com.example.mptest.entity.Resource">
+        SELECT * FROM resource WHERE id IN
+        <foreach collection="ids" item="i" separator="," open="(" close=")">
+            #{i}
+        </foreach>
+        ORDER BY field(id,
+        <foreach collection="ids" item="i" separator=",">
+            #{i}
+        </foreach>
+        )
+    </select>
+</mapper>

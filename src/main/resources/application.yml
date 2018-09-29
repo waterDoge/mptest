@@ -1,0 +1,16 @@
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/mptest?useUnicode=true&characterEncoding=UTF-8&useSSL=false&allowMultiQueries=true
+    username: test
+    password: 123456
+    driver-class-name: com.mysql.jdbc.Driver
+  flyway:
+    table: _schema_history
+    schemas: mptest
+mybatis-plus:
+  mapper-locations: classpath*:mybatis/*.xml
+  typeAliasesPackage: com.example.**.entity
+
+logging:
+  level:
+    com.baomidao: debug
